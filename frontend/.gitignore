@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+
+# Streamlit
+.streamlit/secrets.toml
+
+# 虚拟环境
+venv/
+env/
+.venv/
+.env/
+
+# 数据库 / 数据
+data/*.db
+data/*.db-journal
+
+# 上传的热力图
+mock_uploads/*
+!mock_uploads/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 日志
+*.log

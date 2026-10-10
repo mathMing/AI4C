@@ -1,0 +1,169 @@
+# =========================
+# AI4C / 瞳观城康 .gitignore
+# =========================
+
+# ----- Python -----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+.pytest_cache/
+.mypy_cache/
+*.pyd
+build/
+dist/
+
+# ----- 虚拟环境 -----
+venv/
+env/
+.venv/
+.env/
+.python-version
+conda-env.yml
+
+# ----- Streamlit -----
+.streamlit/secrets.toml
+.streamlit/config.toml
+.streamlit/credentials.toml
+
+# ----- 数据库 / 运行时数据 -----
+data/*.db
+data/*.db-journal
+data/*.sqlite
+data/*.sqlite3
+*.db
+*.sqlite
+
+# ----- 上传的图像 / 热力图缓存 -----
+mock_uploads/*
+!mock_uploads/.gitkeep
+uploads/
+backend/uploads/
+backend/gradcam_cache/
+
+# ----- IDE -----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ----- 操作系统 -----
+.DS_Store
+Thumbs.db
+desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# ----- 日志 -----
+*.log
+*.err.log
+*.out.log
+logs/
+!logs/.gitkeep
+
+# ----- 临时文件 -----
+test_tmp/
+*.tmp
+*.bak
+*.pid
+nohup.out
+
+# =========================
+# 大文件 / 模型权重 (关键)
+# GitHub 单文件 ≤ 100MB，仓库建议 ≤ 1GB
+# =========================
+*.pt
+*.pth
+*.pkl
+*.bin
+*.h5
+*.onnx
+*.zip
+*.tar.gz
+*.7z
+*.rar
+
+# AutoMorph / RetiZero 压缩包
+AutoMorph*.zip
+best.lora.pt
+RetiZero.pth
+
+# ----- 训练产物 / 可视化中间结果 -----
+runs/
+checkpoints/
+checkpoints-*/
+trained_models/
+*.ckpt
+
+# 部署快照（.deploy 是一次性打包出来的副本，不入仓）
+.deploy/
+
+# ----- 训练数据（大文件集合，必须排除） -----
+# 训练数据集原始分卷/压缩包/解压目录，都不入仓
+algo/data/
+backend/models/*.pt
+backend/models/*.pth
+backend/models/*.bin
+backend/ckpt/
+backend/weights/
+
+# ---- 测试脚本与一次性脚本（不要进仓库） ----
+test_*.js
+test_*.bat
+test_*.sh
+test_*.py
+gen_test_image.js
+extract_real_schema.js
+frontend_smoke.js
+test_bridge.js
+test_mock_fields.js
+test_root.js
+test_schema_alignment.js
+test_schema_diff.js
+_scan_cjk.js
+_scan_cjk.py
+_phase1_cleanup.js
+mock_server.js
+
+# ---- 启动脚本 / 一键脚本（选择放在 scripts/，根目录不进仓库） ----
+start_all.bat
+start_node_mock.bat
+start_node_real.bat
+start_anything.sh
+stop_all.bat
+check_health.bat
+start.sh
+test_db.bat
+test_db_real.bat
+test_3_endpoints.bat
+test_5_endpoints.bat
+rename_frontend.ps1
+demo_ui.html
+demo_script.md
+
+# ----- 渲染 / 文档中间产物 -----
+gradcam_5classes.png
+gradcam_5classes_1.png
+gradcam_5classes*.png
+OFFLINE_STATUS.md
+
+# 课程 / 培训笔记（如有需要单独管理，可移除这两行）
+# "?? 核心模型与代码.md"
+# "“瞳观城康”从零开始实现教程（大白话详细版）.md"
+CORE_MODELS_AND_CODE.md
+TUTORIAL_tongguan_from_zero.md
+_demo_decoded.md
+_gbk_decode.js
+_phase1_fallback.js
+_phase2_collect.js
+_*.js
+_*.py
+_*.md
+_*.json
+_*.txt
+
+# 顶层杂项：重复的 / 过时的 requirements 与说明
+frontend_requirements.txt

@@ -1,0 +1,23 @@
+# 瞳观城康 · B 同学工程线依赖
+# Python 3.10 验证通过
+
+# Web 框架
+streamlit>=1.30.0
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.9
+
+# 数据与可视化
+pandas>=2.0.0
+numpy>=1.24.0
+plotly>=5.18.0
+requests>=2.31.0
+
+# 图像处理（Pillow 用于占位图）
+Pillow>=10.0.0
+
+# 报告导出
+reportlab>=4.0.0
+matplotlib>=3.8.0
+
+# SQL 3.10 默认带 sqlite3，无需额外安装

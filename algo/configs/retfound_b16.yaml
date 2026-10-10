@@ -1,0 +1,63 @@
+# AI4C 训练配置：RETFound MAE + LoRA 高效微调
+# 用于 DDR 5 分类（No DR / Mild / Moderate / Severe / Proliferative）
+
+model:
+  name: retfound_mae            # 走 RETFoundClassifier（LoRA 版）
+  num_classes: 5
+  retfound_weights: /root/autodl-tmp/RETFound/RETFound_mae_natureCFP.pth
+  dropout: 0.1
+  hidden_dim: 1024
+
+# === LoRA 配置 ===
+lora:
+  r: 8                          # LoRA 秩
+  alpha: 16                     # LoRA 缩放系数 (alpha/r = 2.0)
+  dropout: 0.05
+
+data:
+  root: /root/autodl-tmp/AI4C/algo/data/DDR_processed
+  train_ratio: 0.7
+  val_ratio: 0.15
+  test_ratio: 0.15
+  classes:
+    0: "No DR"
+    1: "Mild NPDR"
+    2: "Moderate NPDR"
+    3: "Severe NPDR"
+    4: "Proliferative DR"
+  img_size: 224
+  batch_size: 32                # LoRA 省显存，batch 可开 32（4080 32G 完全够）
+  num_workers: 4
+  pin_memory: true
+  augment: strong
+
+train:
+  optimizer: adamw
+  lr: 1e-4                      # 其他可训层
+  lora_lr: 1e-4                 # LoRA 旁路（与 lr 同量级，LoRA 标准做法）
+  head_lr: 1e-3                 # 分类头（最大）
+  weight_decay: 0.05
+  epochs: 20
+  warmup_epochs: 2
+  scheduler: cosine
+  min_lr: 1e-6
+  loss: ce
+  label_smoothing: 0.1
+  use_class_weight: true
+  early_stop_patience: 5
+  amp: true
+  grad_accum: 1
+  grad_clip: 1.0
+
+output:
+  ckpt_dir: /root/autodl-tmp/AI4C/algo/runs
+  log_dir: /root/autodl-tmp/AI4C/algo/runs/logs
+
+metrics:
+  - accuracy
+  - quadratic_kappa
+  - auc_ovr
+  - per_class_precision
+  - per_class_recall
+
+seed: 42

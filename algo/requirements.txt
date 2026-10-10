@@ -1,0 +1,14 @@
+# A 同学算法线依赖
+# 训练 pipeline
+tqdm>=4.66.0
+PyYAML>=6.0
+opencv-python-headless>=4.9.0
+scikit-learn>=1.3.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+scipy>=1.11.0
+pandas>=2.0.0
+
+# timm 用于加载 RETFound 风格 ViT（如果可联网）
+# timm>=0.9.0
+# 如果使用 timm 替代 torchvision ViT，可启用

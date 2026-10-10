@@ -1,0 +1,28 @@
+# 瞳观城康 · A 同学算法线后端依赖
+# RETFound 眼底基础模型 + FastAPI 服务
+
+# 核心深度学习
+torch>=2.0.0
+torchvision>=0.15.0
+
+# 模型相关
+timm>=0.9.0
+transformers>=4.36.0
+
+# FastAPI 服务
+fastapi>=0.110.0
+uvicorn[standard]>=0.27.0
+python-multipart>=0.0.9
+
+# 图像处理
+Pillow>=10.0.0
+opencv-python-headless>=4.9.0
+
+# 数据
+numpy>=1.24.0
+scipy>=1.11.0
+scikit-learn>=1.3.0
+
+# 工具
+requests>=2.31.0
+huggingface_hub>=0.20.0
