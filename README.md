@@ -1,29 +1,47 @@
 # 👁 瞳观城康 · AI4C
 
-> **AI for Cities** — 研究生智慧城市比赛 · 智慧医疗赛道  
-> 基于视网膜基础模型（RETFound）的 **眼底—全身慢病早筛** 与 **城市健康管理** 一体化平台
+> **AI for Cities** — 研究生智慧城市比赛 · 智慧医疗赛道
+> 基于视网膜基础模型（**RETFound**）的 **眼底—全身慢病早筛** 与 **城市健康管理** 一体化平台
 
 > 一张眼底照，洞察眼与全身；一个平台，连接社区与城市。
 
+[![License: Research Only](https://img.shields.io/badge/License-Research%20Only-orange.svg)](./LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.30%2B-FF4B4B.svg)](https://streamlit.io/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.110%2B-009688.svg)](https://fastapi.tiangolo.com/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0%2B-EE4C2C.svg)](https://pytorch.org/)
-[![License](https://img.shields.io/badge/License-Research%20Only-lightgrey.svg)](#-免责声明)
+[![Code style: PEP 8](https://img.shields.io/badge/Code%20Style-PEP%208-yellow.svg)](https://peps.python.org/pep-0008/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
+[![GitHub stars](https://img.shields.io/github/stars/mathMing/AI4C.svg)](https://github.com/mathMing/AI4C/stargazers)
+[![GitHub last commit](https://img.shields.io/github/last-commit/mathMing/AI4C.svg)](https://github.com/mathMing/AI4C/commits/main)
+[![GitHub repo size](https://img.shields.io/github/repo-size/mathMing/AI4C.svg)](https://github.com/mathMing/AI4C)
 
 ---
 
 ## 📌 项目简介
 
-**瞳观城康**（TongGuan ChengKang）面向 **基层社区** 与 **城市公卫** 两个使用场景：
+**瞳观城康**（TongGuan ChengKang）面向 **基层社区** 与 **城市公卫** 两个使用场景，构建"眼底一张图 → 多病种早筛 → 区域驾驶舱"的一体化产品。
 
-- 🩺 **基层端**：社区医生上传眼底影像 → AI 秒级返回 DR（糖尿病视网膜病变）分级 + Grad-CAM 可解释热力图 + 心血管 / 高血压 / 慢性肾病三联风险 → 一键入档、生成 PDF 报告。
-- 🏙 **城市端**：多社区筛查数据汇总到「区域眼健康驾驶舱」，提供 KPI、疾病谱、转诊建议、社区排名等可视化。
-- 🧑‍⚕️ **随访端**：同一患者多次筛查趋势、跨次对比、转诊建议、增量新增。
-- 🛰 **数字孪生**：基于地理坐标的 3D 城市—社区—患者三层下钻（Plotly 3D）。
+- 🩺 **基层筛查工作台**：社区医生上传眼底影像 → AI 秒级返回 DR（糖尿病视网膜病变）5 级分级 + Grad-CAM 可解释热力图 + 心血管 / 高血压 / 慢性肾病三联风险 → 一键入档、生成 PDF 报告。
+- 🏙 **区域眼健康驾驶舱**：10 社区筛查数据汇总，提供 KPI、DR 分级饼图、疾病谱堆叠、转诊建议、社区排名等可视化。
+- 🧑‍⚕️ **患者随访档案**：同一患者多次筛查趋势、跨次对比、转诊建议、增量录入。
+- 🛰 **城市数字孪生**：基于地理坐标的 3D 城市—社区—患者三层下钻（Plotly 3D）。
 - ⚙ **性能监控**：在线展示后端推理延迟、吞吐、错误率（实时仪表盘）。
+- 🟣 **多病种联合诊断 v2.0**：DR + 青光眼 + AMD 一次出（5 类）。
+- 🧪 **图像质控**：离线亮度 / 模糊 / 视野圆检测，不合格图直接提醒。
+- 📄 **PDF/CSV 报告导出**：单次筛查 PDF、批量 CSV 包、区域数据 CSV。
 
-核心算法基于 **RETFound** 视网膜基础模型（ViT-L/16，ImageNet-21k + 1.6M 眼底图自监督预训练），并融合 **RetiZero** 零样本分类能力以及 **AutoMorph** 形态学特征管线。
+**核心算法** 基于 **RETFound** 视网膜基础模型（ViT-L/16，ImageNet-21k + 1.6M 眼底图自监督预训练），并融合 **RetiZero** 零样本分类能力以及 **AutoMorph** 形态学特征管线。
+
+---
+
+## 🖼 项目截图
+
+> 提交 PR 时欢迎附图；本地项目封面图待上传（参见下方"贡献指南"）。
+
+| 基层筛查工作台 | 区域眼健康驾驶舱 | 城市数字孪生 |
+|:-:|:-:|:-:|
+| *TODO* | *TODO* | *TODO* |
 
 ---
 
@@ -47,8 +65,11 @@
 ```
 AI4C/
 ├── README.md                    # 本文档
+├── LICENSE                      # Research-Only 许可声明
+├── CONTRIBUTING.md              # 贡献指南
+├── CHANGELOG.md                 # 变更日志
 ├── .gitignore                   # 忽略大文件、日志、临时脚本
-├── requirements.txt             # 顶层依赖（DR-RetFound backend）
+├── .gitattributes                # LFS / 文本归一化
 ├── init_db.sql                  # SQLite 表结构（CLI 初始化版）
 │
 ├── frontend/                    # B 同学工程线：Streamlit 多页面 Web
@@ -85,10 +106,10 @@ AI4C/
 │   ├── inspect_ckpt.py          # ckpt 健康度检查
 │   ├── test_backend.py          # 后端 smoke test
 │   ├── requirements.txt         # 后端依赖
-│   ├── models/                  # 模型构建 / 权重
+│   ├── models/                  # 模型构建 / 权重（已 .gitignore）
 │   └── bridge/                  # 桥接脚本（mock ↔ real）
 │
-├── algo/                        # A 同学训练线
+├── algo/                        # A 同学训练线（详见 algo/ALGO_README.md）
 │   ├── train.py                 # 训练主入口（AMP + cosine + QWK 选 best）
 │   ├── evaluate.py              # 评估脚本
 │   ├── prepare_data.py          # DDR 数据集准备
@@ -225,6 +246,8 @@ export TONGGUAN_API_URL=http://localhost:8000
 
 返回 5 类 DR 标签字典。
 
+完整字段说明见 [`backend/backend.py`](./backend/backend.py) 与 [`frontend/utils/api_client.py`](./frontend/utils/api_client.py)。
+
 ---
 
 ## 🧠 模型权重（大文件说明）
@@ -236,6 +259,7 @@ export TONGGUAN_API_URL=http://localhost:8000
 | `AutoMorph-main.zip` | AutoMorph 官方发布 | ~1.6 GB | **不在仓库**，仅作数据准备参考 |
 
 > GitHub 单文件 ≤ 100 MB，仓库建议 ≤ 1 GB。`.gitignore` 已将 `*.pt / *.pth / *.zip` 全部排除。
+> 注意：仓库**当前没有**直接 commit 任何模型权重（`runs/`、`best.lora.pt` 等均被排除）。`ALGO_README.md` 中 "tracked in git" 的描述为旧版本残留，已在本仓库与 `.gitignore` 一致后修正。
 
 **下载 / 放置位置**：
 
@@ -244,10 +268,10 @@ export TONGGUAN_API_URL=http://localhost:8000
 # https://github.com/...  →  下载到 backend/models/RetiZero.pth
 
 # 2) RETFound 官方权重
-# https://github.com/...  →  下载到 backend/models/retfound_v1.pth
+# https://github.com/rmaphoh/RETFound_MAE  →  下载到 backend/models/retfound_v1.pth
 
 # 3) 本项目 LoRA（用 algo/train.py 训练得到）
-python algo/train.py --config algo/configs/dr_vit_b16.yaml
+python algo/train.py --config algo/configs/retfound_b16.yaml
 # 产出 best.lora.pt → backend/models/best.lora.pt
 ```
 
@@ -300,17 +324,72 @@ python backend/test_backend.py
 | **A 同学（算法线）** | RETFound 推理 / 微调 · Grad-CAM · RetiZero 零样本 · AutoMorph 特征 · FastAPI 模型服务 | `backend/` · `algo/` |
 | **B 同学（工程线）** | 模拟后端 · Streamlit 五页面 Web · SQLite 随访库 · 城市驾驶舱 · 3D 数字孪生 · 文档与部署脚本 | `frontend/` |
 
+> 欢迎更多同学加入（详见 [`CONTRIBUTING.md`](./CONTRIBUTING.md)）。
+
+---
+
+## 📊 项目数据（演示）
+
+| 指标 | 数值 |
+|------|------|
+| 训练数据 | DDR 5 类 DR 分级 |
+| 模型规模 | RETFound ViT-L/16 (304M) / LoRA (~12MB) |
+| 推理延迟 | mock < 50ms / 真模型 ≤ 300ms (单卡 4090) |
+| 演示规模 | 10 社区 / 1000+ 模拟患者 |
+
+---
+
+## 🗺 路线图
+
+- [x] 0.x：DR 单病种 5 级分级 + Streamlit 工作台
+- [x] 1.0：基层 → 区域 → 城市三层驾驶舱 + 数字孪生
+- [x] 1.1：多病种联合诊断（DR + 青光眼 + AMD）
+- [ ] 1.2：增量学习 / 联邦学习支持
+- [ ] 1.3：临床结构化数据联合建模
+- [ ] 2.0：基座模型升级 + 多模态（眼底+ OCT）
+
+---
+
+## 🤝 贡献指南
+
+我们欢迎任何形式的贡献（bug 报告、功能建议、PR、Demo 案例）！请先阅读 [`CONTRIBUTING.md`](./CONTRIBUTING.md)：
+- 提交 Issue 前请先搜索是否已有同类问题
+- PR 请保持单一职责，并附上简要说明
+- 代码风格遵循 PEP 8，关键函数请加 docstring
+
 ---
 
 ## 📜 许可与引用
 
-- **本仓库代码**：仅供科研 / 比赛演示使用，**不作为临床诊断依据**。
+- **本仓库代码**：仅供科研 / 比赛演示使用，**不作为临床诊断依据**。详见 [`LICENSE`](./LICENSE)。
 - **RETFound**：Zhou et al., *A foundation model for generalizable disease detection from retinal images*, Nature 2023.
 - **RetiZero**：Wang et al., 2024.
 - **AutoMorph**：Zhou et al., 2022.
+
+如果本项目对你的研究有帮助，欢迎引用：
+
+```bibtex
+@misc{ai4c2026,
+  author = {mathMing and contributors},
+  title  = {TongGuan ChengKang (AI4C): A Retinal-Foundation-Model Driven Platform for City-Wide Chronic Disease Screening},
+  year   = {2026},
+  howpublished = {GitHub repository},
+  url    = {https://github.com/mathMing/AI4C}
+}
+```
 
 ---
 
 ## ⚠ 免责声明
 
-本项目所有 AI 输出仅供科研与教学演示，**不可**作为任何医疗诊断、治疗或预防的依据。任何临床决策须由具有相应资质的医师作出。
+本项目所有 AI 输出仅供科研与教学演示，**不可**作为任何医疗诊断、治疗或预防的依据。任何临床决策须由具有相应资质的医师作出。详见 [`LICENSE`](./LICENSE)。
+
+---
+
+<div align="center">
+
+**用 ❤️ 与 🤖 建造  ·  Built with care for primary care**
+
+[⬆ 回到顶部](#-瞳观城康--ai4c)
+
+</div>
