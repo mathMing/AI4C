@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-# =========================
-# AI4C / 瞳观城康 .gitignore
-# =========================
-
-# ----- Python -----
+# ==================# AI4C / 瞳观城康 .gitignore
+# ===========# ----- Python -----
 __pycache__/
 *.py[cod]
 *$py.class
@@ -72,11 +68,9 @@ test_tmp/
 *.pid
 nohup.out
 
-# =========================
-# 大文件 / 模型权重 (关键)
+# ==================# 大文件 / 模型权重 (关键)
 # GitHub 单文件 ≤ 100MB，仓库建议 ≤ 1GB
-# =========================
-*.pt
+# ==================*.pt
 *.pth
 *.pkl
 *.bin
@@ -168,7 +162,6 @@ _*.txt
 
 # 顶层杂项：重复的 / 过时的 requirements 与说明
 frontend_requirements.txt
-=======
 # Python
 __pycache__/
 *.py[cod]
@@ -199,4 +192,8 @@ outputs/gradcam/
 
 # OS
 Thumbs.db
->>>>>>> b7e0396 (init_algo_source)
+# ----- temp / project artifacts -----
+runs.tar
+runs/
+*.bak.yaml
+*.bak.py
