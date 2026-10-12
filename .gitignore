@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # =========================
 # AI4C / 瞳观城康 .gitignore
 # =========================
@@ -167,3 +168,35 @@ _*.txt
 
 # 顶层杂项：重复的 / 过时的 requirements 与说明
 frontend_requirements.txt
+=======
+# Python
+__pycache__/
+*.py[cod]
+$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Datasets (large, not committed)
+data/
+
+# Training logs and pids
+*.log
+train_pid.txt
+*.pid
+outputs/gradcam/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# OS
+Thumbs.db
+>>>>>>> b7e0396 (init_algo_source)

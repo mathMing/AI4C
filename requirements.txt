@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DR-RetFound backend dependencies
 #
 # Versions are pinned to what is already installed on the target host
@@ -23,3 +24,19 @@ slowapi>=0.1.9   # 限流（防 F5 打爆）
 # --- imaging / data ---
 numpy>=1.24
 Pillow>=10.0
+=======
+# A 同学算法线依赖
+# 训练 pipeline
+tqdm>=4.66.0
+PyYAML>=6.0
+opencv-python-headless>=4.9.0
+scikit-learn>=1.3.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
+scipy>=1.11.0
+pandas>=2.0.0
+
+# timm 用于加载 RETFound 风格 ViT（如果可联网）
+# timm>=0.9.0
+# 如果使用 timm 替代 torchvision ViT，可启用
+>>>>>>> b7e0396 (init_algo_source)
