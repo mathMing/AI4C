@@ -197,3 +197,22 @@ runs.tar
 runs/
 *.bak.yaml
 *.bak.py
+
+# ----- root-level duplicates of algo/ (kept canonical under algo/) -----
+# Accidentally pushed in d811c95; the canonical sources live under algo/.
+# They are intentionally NOT deleted from the working tree (kept as
+# local reference) but excluded from the repo.
+/__init__.py
+/configs/
+/datasets/
+/models/
+/transforms/
+/utils/
+/evaluate.py
+/local_demo.py
+/train.py
+/prepare_data.py
+/prepare_ddr.py
+/prepare_ddr_for_automorph.py
+/requirements.txt
+/run_automorph_full.sh
